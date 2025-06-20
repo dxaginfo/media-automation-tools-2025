@@ -1,0 +1,52 @@
+{
+  "validation_rules": {
+    "allow_unknown_elements": false,
+    "strict_mode": true,
+    "min_resolution": {
+      "width": 1920,
+      "height": 1080
+    },
+    "allowed_color_spaces": ["sRGB", "Rec709", "Rec2020"],
+    "element_rules": {
+      "camera": {
+        "required_properties": ["fov", "focal_length"],
+        "constraints": {
+          "fov_range": [10, 120],
+          "focal_length_range": [10, 200]
+        }
+      },
+      "light": {
+        "required_properties": ["intensity", "color"],
+        "constraints": {
+          "intensity_range": [0, 100]
+        }
+      },
+      "model": {
+        "required_properties": ["mesh", "material"],
+        "constraints": {}
+      }
+    }
+  },
+  "performance_limits": {
+    "timeout_seconds": 30,
+    "max_elements": 1000
+  },
+  "notification_settings": {
+    "email_on_error": false,
+    "email_recipients": [],
+    "webhook_url": ""
+  },
+  "cloud_settings": {
+    "project_id": "your-gcp-project-id",
+    "storage_bucket": "your-storage-bucket",
+    "gemini_model": "gemini-pro",
+    "region": "us-central1"
+  },
+  "api_settings": {
+    "host": "0.0.0.0",
+    "port": 8000,
+    "debug": false,
+    "enable_cors": true,
+    "allowed_origins": ["*"]
+  }
+}
